@@ -3,3 +3,5 @@
 310K/2/dry.xtc
 400K/dry.xtc
 .ipynb_checkpoints/analysis-checkpoint.ipynb
+.DS_Store
+__pycache__/functions.cpython-38.pyc

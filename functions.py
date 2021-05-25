@@ -18,6 +18,7 @@ def get_df(to_read):
     k_310_2 =  '/Users/IggyMac/OneDrive - UvA/2020-2021/Biomolecular simulations/Project/Work/Biomolecular-Simulations/310K/2'
     k_310_1 = '/Users/IggyMac/OneDrive - UvA/2020-2021/Biomolecular simulations/Project/Work/Biomolecular-Simulations/310K/1'
     k_400 = '/Users/IggyMac/OneDrive - UvA/2020-2021/Biomolecular simulations/Project/Work/Biomolecular-Simulations/400K'
+    base = '/Users/IggyMac/OneDrive - UvA/2020-2021/Biomolecular simulations/Project/Work/Biomolecular-Simulations'
     # read data
     os.chdir(k_310_1)
     x_310_1, y_310_1 = read_xvg(to_read)
@@ -36,6 +37,7 @@ def get_df(to_read):
     df = pd.DataFrame(df_dict)
     df = pd.melt(df, id_vars=['x'], value_vars=['310K - 1', '310K - 2', '400K'])
     df.columns = ['Time', 'Simulation', 'value']
+    os.chdir(base)
     return df
 
 def plot_joint(data, text_size = 15, xlabel = "Time", ylabel = "RMS"):
