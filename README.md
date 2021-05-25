@@ -1,2 +1,2 @@
 # Biomolecular Simulations
- Final project for course Biomolecular Simulations at University of Amsterdam
+ Final project for course Biomolecular Simulations at the University of Amsterdam
