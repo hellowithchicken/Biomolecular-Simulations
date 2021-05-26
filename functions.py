@@ -45,18 +45,18 @@ def plot_joint(data, text_size = 15, xlabel = "Time", ylabel = "RMS"):
     plt.rc('ytick', labelsize=text_size) 
 
     f, axs = plt.subplots(1,2,
-                      figsize=(10,5),
+                      figsize=(10,3),
                       sharey=True,
                      gridspec_kw=dict(width_ratios=[3,0.5]))
 
-    sns.lineplot(data = df,
+    sns.lineplot(data = data,
                 x = "Time",
                 y = "value",
                 hue = "Simulation",
                 ax = axs[0])
 
 
-    sns.kdeplot(data = df,
+    sns.kdeplot(data = data,
                 y = "value",
                 hue = "Simulation",
                 legend = False,
@@ -68,3 +68,6 @@ def plot_joint(data, text_size = 15, xlabel = "Time", ylabel = "RMS"):
     axs[0].legend(title = "Simulation", fontsize=text_size, title_fontsize=text_size)
 
     f.tight_layout()
+    
+def get_mean(df):
+    return df.groupby("Simulation")["value"].mean()
