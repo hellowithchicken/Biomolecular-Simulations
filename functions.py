@@ -1,3 +1,8 @@
+def get_number_string(string):
+    import re
+    s = [float(s) for s in re.findall(r'-?\d+\.?\d*', string)]
+    return s
+
 def read_xvg(file):
     with open(file, 'r') as f:
         lines = f.readlines()
@@ -41,6 +46,8 @@ def get_df(to_read):
     return df
 
 def plot_joint(data, text_size = 15, xlabel = "Time", ylabel = "RMS"):
+    plt.style.use('ggplot')
+    sns.set_palette("twilight")
     plt.rc('xtick', labelsize=text_size) 
     plt.rc('ytick', labelsize=text_size) 
 
@@ -71,3 +78,30 @@ def plot_joint(data, text_size = 15, xlabel = "Time", ylabel = "RMS"):
     
 def get_mean(df):
     return df.groupby("Simulation")["value"].mean()
+
+def plot_fes(number, text_size = 15, xlabel = "CV", ylabel = "Bias potential"):
+    """ 
+    number - metadynamics simulation number 
+    """
+    plt.rc('xtick', labelsize=text_size) 
+    plt.rc('ytick', labelsize=text_size) 
+    base = '/Users/IggyMac/OneDrive - UvA/2020-2021/Biomolecular simulations/Project/Work/Biomolecular-Simulations'
+    plot = str(number)
+    os.chdir(base + "/Metadynamics/" + plot + "/fes_data")
+    file_list = os.listdir()
+    df_full = pd.DataFrame()
+    for file in file_list:
+        number = get_number_string(file)
+        x, y = read_xvg(file)
+        df_dict = {"Step" : number[0],
+                  "x": x,
+                  "y": y}
+        df = pd.DataFrame(df_dict)
+        df_full = df_full.append(df)
+    sns.lineplot(data = df_full,
+            x = "x",
+            y = "y",
+            hue = "Step")
+    plt.ylabel(ylabel, fontsize=text_size)
+    plt.xlabel(xlabel, fontsize=text_size)
+    os.chdir(base)

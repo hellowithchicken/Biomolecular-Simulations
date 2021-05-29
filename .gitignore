@@ -5,3 +5,6 @@
 .ipynb_checkpoints/analysis-checkpoint.ipynb
 .DS_Store
 __pycache__/functions.cpython-38.pyc
+Metadynamics/2/dry.xtc
+Metadynamics/3/dry.xtc
+Metadynamics/1/dry.xtc
