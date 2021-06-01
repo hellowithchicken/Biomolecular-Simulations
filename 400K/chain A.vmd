@@ -332,6 +332,7 @@ mol clipplane center 5 0 top {0.0 0.0 0.0}
 mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0000001192092896}
 mol clipplane status 5 0 top {0}
+mol showrep top 0 0
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Chain
 mol selection {index 1 to 388}
@@ -367,7 +368,7 @@ mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0000001192092896}
 mol clipplane status 5 1 top {0}
 mol rename top dry.gro
-set viewpoints([molinfo top]) {{{1 0 0 -50.524} {0 1 0 -50.5042} {0 0 1 -23.8259} {0 0 0 1}} {{0.367764 0.860609 0.352141 0} {-0.140114 -0.323077 0.935907 0} {0.919264 -0.393564 0.00176683 0} {0 0 0 1}} {{0.0407061 0 0 0} {0 0.0407061 0 0} {0 0 0.0407061 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -50.524} {0 1 0 -50.5042} {0 0 1 -23.8259} {0 0 0 1}} {{0.972941 -0.207878 -0.100966 0} {0.0910593 -0.0567144 0.994232 0} {-0.212382 -0.976512 -0.0362449 0} {0 0 0 1}} {{0.0407061 0 0 0} {0 0.0407061 0 0} {0 0 0.0407061 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 5
